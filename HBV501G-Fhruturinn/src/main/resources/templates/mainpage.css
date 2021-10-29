@@ -1,0 +1,24 @@
+
+.icon {
+    display: inline-block;
+    background: #E6E6FA;
+    width: 1.2rem;
+    height: 1rem;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+}
+head {
+    text-decoration-color: #080808;
+    color: #080808;
+}
+body {
+    background-color: #E6E6FA;
+    color: #080808;
+
+
+}
+.bg-grains,
+.bg-grains a {
+    background-color: #c6bc39;
+    color: #082c4f;
+}
