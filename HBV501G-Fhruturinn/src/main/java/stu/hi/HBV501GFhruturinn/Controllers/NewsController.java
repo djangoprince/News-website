@@ -17,9 +17,10 @@ public class NewsController {
     @Autowired
 
 
-    @RequestMapping("/")
+    @RequestMapping("/mainpage")
     public String mainpage(Model model) {
         //call a method in service class
+        //like calling news
         return "mainpage";
     }
 }
