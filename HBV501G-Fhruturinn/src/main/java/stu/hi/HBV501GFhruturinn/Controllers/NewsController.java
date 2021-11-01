@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import stu.hi.HBV501GFhruturinn.Services.NewsService;
 
+// This controller will control the flow of all data about news items to the user as they get requested
+
 @Controller
 public class NewsController {
     private NewsService newsService;
