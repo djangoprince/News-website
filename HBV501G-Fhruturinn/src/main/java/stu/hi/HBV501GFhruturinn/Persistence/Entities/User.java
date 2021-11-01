@@ -1,6 +1,7 @@
 package stu.hi.HBV501GFhruturinn.Persistence.Entities;
 
 //@Entitiy
+//This entity stores the user info sent back and forth with the data base as requested.
 public class User {
     private String userName;
     private String password;
@@ -8,9 +9,6 @@ public class User {
     private boolean adminPrivilege;
     private int idUser;
 
-
-    public User() {
-    }
 
     public User(String userName, String password, String emailAddress, boolean adminprivilege, int idUser) {
         this.userName = userName;

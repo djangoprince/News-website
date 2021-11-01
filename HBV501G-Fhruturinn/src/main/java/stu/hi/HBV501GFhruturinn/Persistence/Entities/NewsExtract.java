@@ -1,6 +1,8 @@
 package stu.hi.HBV501GFhruturinn.Persistence.Entities;
 
+
 //@Entitiy
+//This entity stores the news extracts requested from the database.
 public class NewsExtract {
     private String title;
     private String description;
@@ -8,10 +10,7 @@ public class NewsExtract {
     private int idNews;
     private String[] tags;
 
-
-    public NewsExtract() {
-    }
-
+    
     public NewsExtract(String title, String description, String link, int idNews, String[] tags) {
         this.title = title;
         this.description = description;

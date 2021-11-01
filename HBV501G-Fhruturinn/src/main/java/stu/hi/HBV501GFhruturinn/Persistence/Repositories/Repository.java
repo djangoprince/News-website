@@ -9,8 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+// The Repository is the program's contact with our MySQl database. It's been the most fleshed out of our classes so far
+// and should be ready for use when the services and controllers are set up with functionality.
 public class Repository {
 
+    //This function gets a news extract by finding a matching title in the database
     public NewsExtract findByTitle(String title) throws Exception {
 
         NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1]);
@@ -47,6 +50,7 @@ public class Repository {
         return news;
     }
 
+    //This function gets a news extract by finding a matching ID in the database
     public NewsExtract findByID(int idnews) throws Exception {
 
         NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1]);
@@ -82,6 +86,7 @@ public class Repository {
         return news;
     }
 
+    //This function will add news to the database
     public boolean addNews(NewsExtract news) throws Exception {
 
         boolean isAdded = false;
@@ -110,6 +115,7 @@ public class Repository {
         else return false;
     }
 
+    //this function will delete news from the database
     public boolean deleteNews(int idnews) throws Exception {
         boolean isdeleted = false;
         try {
@@ -130,6 +136,9 @@ public class Repository {
         else return false;
     }
 
+    //This function will get all news items from the database for the user to go through on the mainpage when it gets requested.
+    //An idea for later date once basic functionality of the site/program is accomplished is to change this or make a similar function that fetches
+    // news items only with certain tags in regards to a tag search or user place preference.
     public ArrayList<NewsExtract> getAll() throws Exception {
         ArrayList<NewsExtract> extractList = new ArrayList<>();
         try {
@@ -165,6 +174,7 @@ public class Repository {
         return extractList;
     }
 
+    // This function gets a user profile from the database by username search
     public User findByUsername(String userName) throws Exception {
 
         User user = new User(" ", " ", " ", true, 0);
@@ -191,6 +201,7 @@ public class Repository {
         return user;
     }
 
+    //This gets a user profile from the database by ID search
     public User findByUserID(int iduser) throws Exception {
 
         User user = new User(" ", " ", " ", true, 0);
@@ -216,6 +227,7 @@ public class Repository {
         return user;
     }
 
+    //This function adds a user profile to the database
     public boolean addUser(User user) throws Exception {
 
         boolean isAdded = false;
@@ -238,6 +250,7 @@ public class Repository {
         else return false;
     }
 
+    //This function deletes a user profile from the database
     public boolean deleteUser(String userName) throws Exception {
 
         boolean isdeleted = false;

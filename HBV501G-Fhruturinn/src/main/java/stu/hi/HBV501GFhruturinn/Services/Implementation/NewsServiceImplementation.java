@@ -7,6 +7,7 @@ import stu.hi.HBV501GFhruturinn.Services.NewsService;
 import java.util.List;
 
 @Service
+//this class is the middle man for contact between the Repository and the NewsContoller
 public class NewsServiceImplementation implements NewsService {
     /*
     private List<NewsExtract> newsRepository = new ArrayList<>();
