@@ -13,5 +13,5 @@ public interface NewsService {
 
     List<NewsExtract> getAll();
 
-    void deleteNews(NewsExtract newsExtract);
+    Boolean deleteNews(NewsExtract newsExtract);
 }

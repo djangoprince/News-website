@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Repository {
 
     //This function gets a news extract by finding a matching title in the database
-    public NewsExtract findByTitle(String title) throws Exception {
+    public static NewsExtract findByTitle(String title) throws Exception {
 
         NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1]);
         try {

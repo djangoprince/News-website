@@ -2,6 +2,7 @@ package stu.hi.HBV501GFhruturinn.Services.Implementation;
 
 import org.springframework.stereotype.Service;
 import stu.hi.HBV501GFhruturinn.Persistence.Entities.NewsExtract;
+import stu.hi.HBV501GFhruturinn.Persistence.Repositories.Repository;
 import stu.hi.HBV501GFhruturinn.Services.NewsService;
 
 import java.util.List;
@@ -29,26 +30,30 @@ public class NewsServiceImplementation implements NewsService {
 
     @Override
     public NewsExtract findByTitle(String title) {
+        Repository.findByTitle(title);
         return null;
     }
 
     @Override
     public NewsExtract findByID(int idNews) {
+
         return null;
     }
 
     @Override
     public NewsExtract addNews(NewsExtract newsExtract) {
+
         return null;
     }
 
     @Override
     public List<NewsExtract> getAll() {
+
         return null;
     }
 
     @Override
-    public void deleteNews(NewsExtract newsExtract) {
-
+    public Boolean deleteNews(NewsExtract newsExtract) {
+        return null;
     }
 }
