@@ -10,8 +10,13 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User findByUsername(String userName) throws Exception {
-        User user = Repository.findByUsername(userName);
-        return user;
+        try {
+            User user = Repository.findByUsername(userName);
+            return user;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override

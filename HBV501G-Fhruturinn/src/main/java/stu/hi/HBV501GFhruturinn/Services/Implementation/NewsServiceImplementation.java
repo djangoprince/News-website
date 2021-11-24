@@ -51,7 +51,7 @@ public class NewsServiceImplementation implements NewsService {
     }
 
     @Override
-    public static ArrayList<NewsExtract> getAllNews() throws Exception {
+    public ArrayList<NewsExtract> getAllNews() throws Exception {
         ArrayList<NewsExtract> extractList = Repository.getAllNews();
         return extractList;
     }
