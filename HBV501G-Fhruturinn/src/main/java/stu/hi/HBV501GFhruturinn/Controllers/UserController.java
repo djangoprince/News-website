@@ -1,6 +1,5 @@
 package stu.hi.HBV501GFhruturinn.Controllers;
 
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,26 +9,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import stu.hi.HBV501GFhruturinn.Persistence.Entities.User;
 import stu.hi.HBV501GFhruturinn.Services.UserService;
 
-<<<<<<< Updated upstream
-=======
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
->>>>>>> Stashed changes
 import javax.servlet.http.HttpSession;
 
 //This controller will get and send the data of users, like then they log in, an account gets created or deleted
 
 @Controller
 public class UserController {
+
     private UserService userService;
-    private User user;
-    private boolean error;
 
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
+    private User user;
+    private boolean error;
 
     // End points to add
     // Add a way to signup (GET, POST) using a form in html
@@ -54,10 +49,6 @@ public class UserController {
             e.printStackTrace();
         }
 
-<<<<<<< Updated upstream
-        if (exists == null) {
-            userService.save(user);
-=======
 
         if (exists == null) {
             try {
@@ -65,7 +56,7 @@ public class UserController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
->>>>>>> Stashed changes
+
         } else error = false;
         return "redirect:/error";
     }
@@ -80,16 +71,14 @@ public class UserController {
         if (result.hasErrors()) {
             return "login";
         }
-<<<<<<< Updated upstream
-        User exists = userService.login(user);
-=======
+
         User exists = null;
         try {
             exists = userService.findByUsername(user.getUserName());
         } catch (Exception e) {
             e.printStackTrace();
         }
->>>>>>> Stashed changes
+
         if (exists != null) {
             session.setAttribute("LoggedInUser", exists);
             model.addAttribute("LoggedInUser", exists);
@@ -111,7 +100,7 @@ public class UserController {
     // logoutGET method
 
     // logoutPOST method
-    
+  /*
     @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
     public String logoutDo(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false);
@@ -132,5 +121,5 @@ public class UserController {
         }
         return "redirect:/login?logout"; //redirect to login screen
     }
-
+    */
 }

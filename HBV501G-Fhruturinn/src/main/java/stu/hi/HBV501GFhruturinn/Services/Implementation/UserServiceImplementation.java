@@ -1,10 +1,12 @@
 package stu.hi.HBV501GFhruturinn.Services.Implementation;
 
+import org.springframework.stereotype.Service;
 import stu.hi.HBV501GFhruturinn.Persistence.Entities.User;
 import stu.hi.HBV501GFhruturinn.Persistence.Repositories.Repository;
 import stu.hi.HBV501GFhruturinn.Services.UserService;
 
 //this class is the middle man for contact between the Repository and the UserContoller
+@Service
 public class UserServiceImplementation implements UserService {
 
 
