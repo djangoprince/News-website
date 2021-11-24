@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
-<form >
+<form action="#" th:action="@{/login}" th:object="${user}"  method="post">
 
     <div class="container">
 
@@ -15,10 +15,10 @@
         <hr>
 
         <label ><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <input type="text" placeholder="Enter Email" name="email" id="email" th:value="*{email}" required>
 
         <label ><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <input type="password" placeholder="Enter Password" name="psw" id="password" th:value="*{password}" required>
 
 
         <label>

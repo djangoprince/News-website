@@ -2,7 +2,7 @@ package HBV501G_Fhruturinn.src.main.java.stu.hi.HBV501GFhruturinn.Controllers;
 
 import org.springframework.stereotype.Controller;
 import stu.hi.HBV501GFhruturinn.Services.UserService.java;
-
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
