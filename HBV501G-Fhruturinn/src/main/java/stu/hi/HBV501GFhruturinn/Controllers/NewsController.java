@@ -25,8 +25,8 @@ public class NewsController {
         //call a method in service class
         //like calling news
         ArrayList<NewsExtract> extractList = newsService.getAllNews();
-        model.addAttribute("News", extractList);
-        NewsExtract test = extractList.get(1);
+        model.addAttribute("news", extractList);
+        NewsExtract test = extractList.get(3);
         System.out.println(test.getTitle());
         return "mainpage";
     }
