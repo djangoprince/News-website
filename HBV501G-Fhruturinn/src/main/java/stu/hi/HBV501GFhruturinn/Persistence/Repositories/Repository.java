@@ -143,13 +143,16 @@ public class Repository {
         ArrayList<NewsExtract> extractList = new ArrayList<>();
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fhruturdb", "root", "2021binniA");
-            NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1]);
+
             String stmt = "SELECT * FROM fhruturdb.newstable";
             PreparedStatement getAllNews = conn.prepareStatement(stmt);
             ResultSet r = getAllNews.executeQuery();
+            int n = 0;
             while (r.next()) {
-
+                NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1]);
                 news.setIdNews(r.getInt("idnews"));
+                System.out.println("id nr: " + r.getInt("idnews"));
+                System.out.println("newsid nr: " + news.getIdNews());
                 news.setTitle(r.getString("title"));
                 news.setDescription(r.getString("description"));
                 news.setLink(r.getString("link"));
@@ -163,7 +166,15 @@ public class Repository {
                 }
                 String[] tagsArray = str.split(" ", space);
                 news.setTags(tagsArray);
+                System.out.println(news.getTitle());
                 extractList.add(news);
+                if (n > 0) {
+                    NewsExtract test2 = extractList.get(n - 1);
+                    System.out.println("previous" + test2.getTitle());
+                }
+                NewsExtract test = extractList.get(n);
+                System.out.println(test.getTitle());
+                n++;
 
             }
             r.close();
