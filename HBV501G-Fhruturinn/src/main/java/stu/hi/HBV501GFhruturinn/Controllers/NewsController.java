@@ -20,12 +20,14 @@ public class NewsController {
         this.newsService = newsService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/")
     public String mainpage(Model model) throws Exception {
         //call a method in service class
         //like calling news
         ArrayList<NewsExtract> extractList = newsService.getAllNews();
         model.addAttribute("News", extractList);
+        NewsExtract test = extractList.get(1);
+        System.out.println(test.getTitle());
         return "mainpage";
     }
 }

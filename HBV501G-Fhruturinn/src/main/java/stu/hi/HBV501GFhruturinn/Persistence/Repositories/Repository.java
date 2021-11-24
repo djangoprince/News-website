@@ -27,7 +27,7 @@ public class Repository {
 
                 news.setIdNews(r.getInt("idnews"));
                 news.setTitle(r.getString("title"));
-                news.setDescription(r.getString("descriptions"));
+                news.setDescription(r.getString("description"));
                 news.setLink(r.getString("link"));
                 String str = r.getString("tags");
                 int space = 0;
@@ -64,7 +64,7 @@ public class Repository {
 
                 news.setIdNews(r.getInt("idnews"));
                 news.setTitle(r.getString("title"));
-                news.setDescription(r.getString("descriptions"));
+                news.setDescription(r.getString("description"));
                 news.setLink(r.getString("link"));
                 String str = r.getString("tags");
                 int space = 0;
@@ -151,11 +151,11 @@ public class Repository {
 
                 news.setIdNews(r.getInt("idnews"));
                 news.setTitle(r.getString("title"));
-                news.setDescription(r.getString("descriptions"));
+                news.setDescription(r.getString("description"));
                 news.setLink(r.getString("link"));
                 String str = r.getString("tags");
                 int space = 0;
-                for (int i = 0; i <= str.length(); i++) {
+                for (int i = 0; i < str.length(); i++) {
                     char ch = str.charAt(i);
                     if (ch == ' ') {
                         space++;
