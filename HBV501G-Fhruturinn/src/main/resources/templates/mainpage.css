@@ -45,3 +45,7 @@ body {
     margin-left: 10px;
     float: left;
 }
+.pic{
+    width: 120px;
+    float: right;
+}
