@@ -1,29 +1,30 @@
-package HBV501G_Fhruturinn.src.main.java.stu.hi.HBV501GFhruturinn.Controllers;
+package stu.hi.HBV501GFhruturinn.Controllers;
 
-import org.springframework.stereotype.Controller;
-import stu.hi.HBV501GFhruturinn.Services.UserService.java;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import javax.servlet.http.HttpSession;
-import stu.hi.HBV501GFhruturinn.Persistence.Entities.User.java;
+import stu.hi.HBV501GFhruturinn.Persistence.Entities.User;
+import stu.hi.HBV501GFhruturinn.Services.UserService;
 
-//This controller will get and send the data of users, like then they log in, an accound gets created or deleted
+import javax.servlet.http.HttpSession;
+
+//This controller will get and send the data of users, like then they log in, an account gets created or deleted
 
 @Controller
 public class UserController {
-    private UserService userService;
-    private User user;
-    private boolean error;
 
-    //@Autowired
+    private UserService userService;
+
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
+    private User user;
+    private boolean error;
 
     // End points to add
     // Add a way to signup (GET, POST) using a form in html
@@ -31,38 +32,54 @@ public class UserController {
     // loggedin (GET) if not logged in -> redirect to homepage, otherwise it will display my username and possibly recipes?
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String signupGET(User user){
+    public String signupGET(User user) {
         return "signup";
     }
+
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signupPOST(User user, BindingResult result, Model model){
-        if(result.hasErrors()){
+    public String signupPOST(User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             return "redirect:/signup";
         }
 
-        User exists = userService.findByUsername(user.getUsername());
-
-
-
-        if(exists == null){
-            userService.save(user);
+        User exists = null;
+        try {
+            exists = userService.findByUsername(user.getUserName());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else error = false;
+
+
+        if (exists == null) {
+            try {
+                userService.addUser(user);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else error = false;
         return "redirect:/error";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginGET(User user){
+    public String loginGET(User user) {
         return "login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginPOST(User user, BindingResult result, Model model, HttpSession session){
-        if(result.hasErrors()){
+    public String loginPOST(User user, BindingResult result, Model model, HttpSession session) {
+        if (result.hasErrors()) {
             return "login";
         }
-        User exists = userService.login(user);
-        if(exists != null){
+
+        User exists = null;
+        try {
+            exists = userService.findByUsername(user.getUserName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (exists != null) {
             session.setAttribute("LoggedInUser", exists);
             model.addAttribute("LoggedInUser", exists);
             return "redirect:/userNews";
@@ -71,9 +88,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/loggedin", method = RequestMethod.GET)
-    public String loggedinGET(HttpSession session, Model model){
+    public String loggedinGET(HttpSession session, Model model) {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-        if(sessionUser != null){
+        if (sessionUser != null) {
             model.addAttribute("LoggedInUser", sessionUser);
             return "loggedInUser";
         }
@@ -83,7 +100,7 @@ public class UserController {
     // logoutGET method
 
     // logoutPOST method
-
+  /*
     @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
     public String logoutDo(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false);
@@ -97,12 +114,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/loggedout", method = RequestMethod.GET)
-    public String loggedoutGET(HttpServletRequest request, HttpServletResponse response){
+    public String loggedoutGET(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null){
+        if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login?logout"; //redirect to login screen
     }
-
+    */
 }

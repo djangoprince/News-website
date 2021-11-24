@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import stu.hi.HBV501GFhruturinn.Persistence.Entities.NewsExtract;
-import stu.hi.HBV501GFhruturinn.Services.Implementation.NewsServiceImplementation;
 import stu.hi.HBV501GFhruturinn.Services.NewsService;
 
 import java.util.ArrayList;
@@ -16,19 +15,19 @@ import java.util.ArrayList;
 public class NewsController {
     private NewsService newsService;
 
+    @Autowired
     public NewsController(NewsService newsService) {
         this.newsService = newsService;
     }
 
-    @Autowired
-
-
-    @RequestMapping("/")
+    @RequestMapping(value = "/")
     public String mainpage(Model model) throws Exception {
         //call a method in service class
         //like calling news
-        ArrayList<NewsExtract> extractList = NewsServiceImplementation.getAllNews();
+        ArrayList<NewsExtract> extractList = newsService.getAllNews();
         model.addAttribute("News", extractList);
+        NewsExtract test = extractList.get(1);
+        System.out.println(test.getTitle());
         return "mainpage";
     }
 }
