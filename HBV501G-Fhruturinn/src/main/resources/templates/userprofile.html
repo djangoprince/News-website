@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Notandi</title>
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="userprofile.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="mainpage.html" style="font-size: 40px; color: #080808" >Fréttahrúturinn</a>
-    <a>Notandi</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon">
-              </span>
-    </button>
+
+    <title class="navbar-brand" href="mainpage.html" style="font-size: 40px; color: #080808" >Fréttahrúturinn</title>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-left: 1200px">
         <div class="navbar-nav" >
             <a class="nav-link" aria-current="page" href="mainpage.html" style="font-size: 30px; color: #080808" >Fréttir<span class="sr-only">(current)</span></a>
@@ -23,27 +21,37 @@
     </div>
 </nav>
 
+<div style="margin-bottom: 70px">
+    <l1 style="font-size: 30px; margin-left: 20px; color: #080808">Hæ Binni!  </l1>
+    <div>
+    <l4 style=" margin-left: 20px; color: #080808">User name: Brynjar Aron  </l4>
+    <l4 style=" margin-left: 20px; color: #080808">Email: brynjar1993@gmail.com  </l4>
+    </div>
+</div>
 
-<div id="Username"></div>
-<div id="email"></div>
 <div class = "form">
 <h3>Filterar</h3><br>
-<form>
+<form >
+    <div style=" margin-bottom: 20px">
+    <l3 style=" margin-left: 10px; color: #080808; ">Veldu filtera  </l3> </div>
     <input type="checkbox" id="Fréttir" name="frettir" value="Bike">
-    <label for="frettir"> Fréttir </label><br>
-    <input type="checkbox" id="Viðskipti" name="vidskipti" value="Car">
-    <label for="vidksipti"> Viðskipti </label><br>
+    <label> Fréttir </label><br>
+
+    <input type="checkbox" id="Viðskipti" name="Viðskipti" value="Viðskipti">
+    <label> Viðskipti </label><br>
+
     <input type="checkbox" id="Íþróttir" name="iþrottir" value="Boat">
-    <label for="iþrottir"> Íþróttir </label><br>
-    <input type="checkbox" id="Lífið" name="lifid" value="Car">
-    <label for="lifid"> Lífið </label><br>
-    <input type="checkbox" id="Fasteignir" name="fasteignir" value="Car">
-    <label for="fasteignir"> Fasteignir </label><br>
+    <label > Íþróttir </label><br>
+    <input type="checkbox" id="Lífið" name="lifid" >
+    <label > Lífið </label><br>
+    <input type="checkbox" id="Fasteignir" name="fasteignir">
+    <label > Fasteignir </label><br>
     <input type="checkbox" id="Matur" name="matur" value="Car">
-    <label for="matur"> Matur </label><br>
+    <label > Matur </label><br>
     <input type="checkbox" id="Ferðalög" name="ferdalog" value="Car">
-    <label for="ferdalog"> Ferðalög </label><br><br>
-    <input type="submit" value="Submit" class="takki">
+    <label > Ferðalög </label><br><br>
+
+    <input type="button" class="takki" onclick="location.href='mainpage.html';" value="Submit" />
 </form>
 </div>
 

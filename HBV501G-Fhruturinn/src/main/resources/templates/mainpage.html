@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <title>Fréttahrúturinn</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          inntegrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="mainpage.css">
 </head>
 <body action="#" th:action="@{/news}" th:object="${news}" >
+
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="mainpage.html" style="font-size: 40px; color: #080808" >Fréttahrúturinn</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon">
               </span>
-    </button>
+        </button>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-left: 1200px">
         <div class="navbar-nav">
             <a class="nav-link" aria-current="page" href="mainpage.html" style="font-size: 30px; color: #080808">Fréttir<span
@@ -21,17 +23,11 @@
             <a class="nav-link" href="userprofile.html" style="font-size: 30px;  color: #080808">Notandi</a>
             <a class="nav-link" href="signup.html" style="font-size: 30px; color: #080808">Skrá út</a>
         </div>
+
+    </div>
     </nav>
 
-    <div class="box">
-        <a class="nav-link" id="news1" th:value="*{email}" href="https://www.mbl.is/sport/enski/2021/11/24/ovissa_vegna_meidslanna_hja_chelsea/" style="font-size: 40px; color: #080808" >Fréttir 1</a>
-        <img class="pics" src="HBV501G-Fhruturinn/src/main/resources/images/pic1.PNG" >
-        <l3 class=" info"> Fleiri upplýsingar um fréttir </l3>
 
-
-        <l5 class=" tags"> Tags </l5>
-    </div>
-</nav>
 
 <div class="box">
     <a class="nav-link" href="https://www.ruv.is/frettir" style="font-size: 40px; color: #080808">Fréttir 1</a>
