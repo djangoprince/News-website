@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Fréttahrúturinn</title>
+    <link rel="stylesheet" href="mainpage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="mainpage.css">
 </head>
-<body action="#" th:action="@{/news}" th:object="${news}" >
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="mainpage.html" style="font-size: 40px; color: #080808" >Fréttahrúturinn</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<body action="#" th:action="@{/news}" th:object="${news}">
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="mainpage.html" style="font-size: 40px; color: #080808">Fréttahrúturinn</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon">
               </span>
     </button>
@@ -21,71 +22,33 @@
             <a class="nav-link" href="userprofile.html" style="font-size: 30px;  color: #080808">Notandi</a>
             <a class="nav-link" href="signup.html" style="font-size: 30px; color: #080808">Skrá út</a>
         </div>
-    </nav>
-
-    <div class="box">
-        <a class="nav-link" id="news1" th:value="*{email}" href="https://www.mbl.is/sport/enski/2021/11/24/ovissa_vegna_meidslanna_hja_chelsea/" style="font-size: 40px; color: #080808" >Fréttir 1</a>
-        <img class="pics" src="HBV501G-Fhruturinn/src/main/resources/images/pic1.PNG" >
-        <l3 class=" info"> Fleiri upplýsingar um fréttir </l3>
-
-
-        <l5 class=" tags"> Tags </l5>
     </div>
+
+
 </nav>
 
-<div class="box">
-    <a class="nav-link" href="https://www.ruv.is/frettir" style="font-size: 40px; color: #080808">Fréttir 1</a>
-    <l3 class=" info"> Fleiri upplýsingar um fréttir</l3>
-    <l5 class=" tags"> Tags</l5>
-</div>
+<table>
 
-<div class="box">
+    <tr th:each="news : ${news}">
+        <td>
+            <div class="box">
 
-    <a class="nav-link" href="https://www.ruv.is/frettir" style="font-size: 40px; color: #080808">Fréttir 2</a>
-    <l3 class=" info"> Fleiri upplýsingar um fréttir</l3>
-    <l5 class=" tags"> Tags</l5>
-</div>
+                <a class="nav-link" th:text=" ${news.title}"></a>
+                <l3 class=" info" th:text=" ${news.description}"></l3>
+                <l4 class=" link" th:text=" ${news.link}"></l4>
+                <l5 class=" tags" th:text=" ${news.tags}"></l5>
+            </div>
+        </td>
 
-<div class="box">
+    </tr>
 
-    <a class="nav-link" href="https://www.ruv.is/frettir" style="font-size: 40px; color: #080808">Fréttir 3</a>
-    <l3 class=" info"> Fleiri upplýsingar um fréttir</l3>
-    <l5 class=" tags"> Tags</l5>
-</div>
-
-<div class="box">
-
-    <a class="nav-link" href="https://www.ruv.is/frettir" style="font-size: 40px; color: #080808">Fréttir 4</a>
-    <l3 class=" info"> Fleiri upplýsingar um fréttir</l3>
-    <l5 class=" tags"> Tags</l5>
-</div>
-
-<div class="box">
-    <a class="nav-link" href="https://www.ruv.is/frettir" style="font-size: 40px; color: #080808">Fréttir 5</a>
-    <l3 class=" info"> Fleiri upplýsingar um fréttir</l3>
-    <l5 class=" tags"> Tags</l5>
-</div>
+</table>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <table>
 
-        <tr th: each = "news : ${news}">
-            <th>
-                <div class="box">
-
-                    <a class="nav-link" th: text=" ${news.title}" style="font-size: 40px; color: #080808" ></a>
-                    <l3 class=" info" th: text=" ${news.description}"> </l3>
-                    <l4 class=" link" th: text=" ${news.link}"> </l4>
-                    <l5 class=" tags" th: text=" ${news.tags}"></l5>
-                </div>
-            </th>
-
-        </tr>
-
-    </table>
 </body>
 </html>
