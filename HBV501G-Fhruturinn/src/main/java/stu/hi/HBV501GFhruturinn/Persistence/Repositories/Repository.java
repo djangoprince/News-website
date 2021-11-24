@@ -51,7 +51,7 @@ public class Repository {
     }
 
     //This function gets a news extract by finding a matching ID in the database
-    public NewsExtract findByID(int idnews) throws Exception {
+    public static NewsExtract findByID(int idnews) throws Exception {
 
         NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1]);
         try {
@@ -87,7 +87,7 @@ public class Repository {
     }
 
     //This function will add news to the database
-    public boolean addNews(NewsExtract news) throws Exception {
+    public static boolean addNews(NewsExtract news) throws Exception {
 
         boolean isAdded = false;
         try {
@@ -116,7 +116,7 @@ public class Repository {
     }
 
     //this function will delete news from the database
-    public boolean deleteNews(int idnews) throws Exception {
+    public static boolean deleteNews(int idnews) throws Exception {
         boolean isdeleted = false;
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fhruturdb", "root", "2021binniA");
@@ -139,7 +139,7 @@ public class Repository {
     //This function will get all news items from the database for the user to go through on the mainpage when it gets requested.
     //An idea for later date once basic functionality of the site/program is accomplished is to change this or make a similar function that fetches
     // news items only with certain tags in regards to a tag search or user place preference.
-    public ArrayList<NewsExtract> getAll() throws Exception {
+    public static ArrayList<NewsExtract> getAllNews() throws Exception {
         ArrayList<NewsExtract> extractList = new ArrayList<>();
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fhruturdb", "root", "2021binniA");
@@ -175,7 +175,7 @@ public class Repository {
     }
 
     // This function gets a user profile from the database by username search
-    public User findByUsername(String userName) throws Exception {
+    public static User findByUsername(String userName) throws Exception {
 
         User user = new User(" ", " ", " ", true, 0);
         try {
@@ -202,12 +202,12 @@ public class Repository {
     }
 
     //This gets a user profile from the database by ID search
-    public User findByUserID(int iduser) throws Exception {
+    public static User findByUserID(int idUser) throws Exception {
 
         User user = new User(" ", " ", " ", true, 0);
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fhruturdb", "root", "2021binniA");
-            String stmt = "Select * From fhruturdb.usertable Where iduser = " + iduser;
+            String stmt = "Select * From fhruturdb.usertable Where iduser = " + idUser;
             PreparedStatement getUser = conn.prepareStatement(stmt);
             ResultSet r = getUser.executeQuery();
             while (r.next()) {
@@ -228,7 +228,7 @@ public class Repository {
     }
 
     //This function adds a user profile to the database
-    public boolean addUser(User user) throws Exception {
+    public static boolean addUser(User user) throws Exception {
 
         boolean isAdded = false;
         try {
@@ -251,7 +251,7 @@ public class Repository {
     }
 
     //This function deletes a user profile from the database
-    public boolean deleteUser(String userName) throws Exception {
+    public static boolean deleteUser(String userName) throws Exception {
 
         boolean isdeleted = false;
         try {

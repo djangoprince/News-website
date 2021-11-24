@@ -2,16 +2,16 @@ package stu.hi.HBV501GFhruturinn.Services;
 
 import stu.hi.HBV501GFhruturinn.Persistence.Entities.NewsExtract;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface NewsService {
-    NewsExtract findByTitle(String title);
+    NewsExtract findByTitle(String title) throws Exception;
 
-    NewsExtract findByID(int idNews);
+    NewsExtract findByID(int idNews) throws Exception;
 
-    NewsExtract addNews(NewsExtract newsExtract);
+    Boolean addNews(NewsExtract newsExtract) throws Exception;
 
-    List<NewsExtract> getAll();
+    ArrayList<NewsExtract> getAllNews() throws Exception;
 
-    Boolean deleteNews(NewsExtract newsExtract);
+    Boolean deleteNews(int idNews) throws Exception;
 }

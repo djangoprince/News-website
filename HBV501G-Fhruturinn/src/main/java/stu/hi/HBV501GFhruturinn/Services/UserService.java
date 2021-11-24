@@ -3,11 +3,11 @@ package stu.hi.HBV501GFhruturinn.Services;
 import stu.hi.HBV501GFhruturinn.Persistence.Entities.User;
 
 public interface UserService {
-    User findByUsername(String username);
+    User findByUsername(String username) throws Exception;
 
-    User findByUserID(int id);
+    User findByUserID(int id) throws Exception;
 
-    User addUser(User user);
+    Boolean addUser(User user) throws Exception;
 
-    void deleteUser(User user);
+    Boolean deleteUser(String userName) throws Exception;
 }

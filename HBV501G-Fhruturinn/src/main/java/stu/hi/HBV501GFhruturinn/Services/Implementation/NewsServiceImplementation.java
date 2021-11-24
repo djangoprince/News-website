@@ -5,7 +5,7 @@ import stu.hi.HBV501GFhruturinn.Persistence.Entities.NewsExtract;
 import stu.hi.HBV501GFhruturinn.Persistence.Repositories.Repository;
 import stu.hi.HBV501GFhruturinn.Services.NewsService;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @Service
 //this class is the middle man for contact between the Repository and the NewsContoller
@@ -29,31 +29,39 @@ public class NewsServiceImplementation implements NewsService {
      */
 
     @Override
-    public NewsExtract findByTitle(String title) {
-        Repository.findByTitle(title);
-        return null;
+    public NewsExtract findByTitle(String title) throws Exception {
+        NewsExtract extract = Repository.findByTitle(title);
+        return extract;
     }
 
     @Override
-    public NewsExtract findByID(int idNews) {
-
-        return null;
+    public NewsExtract findByID(int idNews) throws Exception {
+        NewsExtract extract = Repository.findByID(idNews);
+        return extract;
     }
 
     @Override
-    public NewsExtract addNews(NewsExtract newsExtract) {
+    public Boolean addNews(NewsExtract newsExtract) throws Exception {
+        if (Repository.addNews(newsExtract)) {
+            return true;
+        } else {
+            return false;
+        }
 
-        return null;
     }
 
     @Override
-    public List<NewsExtract> getAll() {
-
-        return null;
+    public ArrayList<NewsExtract> getAllNews() throws Exception {
+        ArrayList<NewsExtract> extractList = Repository.getAllNews();
+        return extractList;
     }
 
     @Override
-    public Boolean deleteNews(NewsExtract newsExtract) {
-        return null;
+    public Boolean deleteNews(int idNews) throws Exception {
+        if (Repository.deleteNews(idNews)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
