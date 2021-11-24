@@ -1,0 +1,46 @@
+head {
+    text-decoration-color: #080808;
+    color: #080808;
+}
+body {
+    background-color: #E6E6FA;
+    color: #080808;
+
+
+}
+.bg-grains,
+.bg-grains a {
+    background-color: #c6bc39;
+    color: #082c4f;
+}
+.form{
+    width: 50%;
+    padding: 12px 20px;
+    margin: auto;
+    #display: inline-block;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+}
+.box{
+    height: 200px;
+    width: 800px;
+    border: 3px solid black;
+    background: antiquewhite;
+    float: left;
+    margin-left: 500px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.takki{
+    background-color: lightgreen;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+}
