@@ -18,9 +18,10 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-left: 1200px">
         <div class="navbar-nav">
-            <a  aria-current="page" href="mainpage.html" style="font-size: 30px; color: #080808; margin-left: 10px">Fréttir<span class="sr-only">(current)</span></a>
-            <a  href="userprofile.html" style="font-size: 30px;  color: #080808; margin-left: 10px">Notandi</a>
-            <a  href="signup.html" style="font-size: 30px; color: #080808; margin-left: 10px">Skrá út</a>
+            <a aria-current="page" href="mainpage.html" style="font-size: 30px; color: #080808; margin-left: 10px">Fréttir<span
+                    class="sr-only">(current)</span></a>
+            <a href="userprofile.html" style="font-size: 30px;  color: #080808; margin-left: 10px">Notandi</a>
+            <a href="signup.html" style="font-size: 30px; color: #080808; margin-left: 10px">Skrá út</a>
         </div>
     </div>
 
@@ -37,11 +38,9 @@
                 <a class="nav-link" th:text=" ${news.title}"></a>
                 <l3 class=" info" th:text=" ${news.description}" style=" margin-left: 10px;float: left;"></l3>
                 <l4 class=" link" th:text=" ${news.link}"></l4>
-<<<<<<< Updated upstream
-                <l5 class=" tags" th:text=" ${news.tags}" style=" margin-right: 20px;margin-top: 70px ; float: right;color: brown; "></l5>
-=======
-                <l5 class=" tags" th:text=" ${news.tagsSTR}"></l5>
->>>>>>> Stashed changes
+                <l5 class=" tags" th:text=" ${news.tagsSTR}"
+                    style=" margin-right: 20px;margin-top: 70px ; float: right;color: brown; "></l5>
+
             </div>
         </td>
 
