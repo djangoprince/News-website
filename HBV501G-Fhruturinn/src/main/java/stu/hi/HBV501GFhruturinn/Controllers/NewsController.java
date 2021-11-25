@@ -26,8 +26,6 @@ public class NewsController {
         //like calling news
         ArrayList<NewsExtract> extractList = newsService.getAllNews();
         model.addAttribute("news", extractList);
-        NewsExtract test = extractList.get(3);
-        System.out.println(test.getTitle());
         return "mainpage";
     }
 }
