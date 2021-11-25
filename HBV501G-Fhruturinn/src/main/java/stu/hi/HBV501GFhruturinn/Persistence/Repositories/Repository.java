@@ -16,7 +16,7 @@ public class Repository {
     //This function gets a news extract by finding a matching title in the database
     public static NewsExtract findByTitle(String title) throws Exception {
 
-        NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1]);
+        NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1], " ");
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fhruturdb", "root", "2021binniA");
 
@@ -30,6 +30,7 @@ public class Repository {
                 news.setDescription(r.getString("description"));
                 news.setLink(r.getString("link"));
                 String str = r.getString("tags");
+                news.setTagsSTR(str);
                 int space = 0;
                 for (int i = 0; i <= str.length(); i++) {
                     char ch = str.charAt(i);
@@ -53,7 +54,7 @@ public class Repository {
     //This function gets a news extract by finding a matching ID in the database
     public static NewsExtract findByID(int idnews) throws Exception {
 
-        NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1]);
+        NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1], " ");
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fhruturdb", "root", "2021binniA");
 
@@ -67,6 +68,7 @@ public class Repository {
                 news.setDescription(r.getString("description"));
                 news.setLink(r.getString("link"));
                 String str = r.getString("tags");
+                news.setTagsSTR(str);
                 int space = 0;
                 for (int i = 0; i <= str.length(); i++) {
                     char ch = str.charAt(i);
@@ -149,14 +151,13 @@ public class Repository {
             ResultSet r = getAllNews.executeQuery();
             int n = 0;
             while (r.next()) {
-                NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1]);
+                NewsExtract news = new NewsExtract(" ", " ", " ", 0, new String[1], " ");
                 news.setIdNews(r.getInt("idnews"));
-                System.out.println("id nr: " + r.getInt("idnews"));
-                System.out.println("newsid nr: " + news.getIdNews());
                 news.setTitle(r.getString("title"));
                 news.setDescription(r.getString("description"));
                 news.setLink(r.getString("link"));
                 String str = r.getString("tags");
+                news.setTagsSTR(str);
                 int space = 0;
                 for (int i = 0; i < str.length(); i++) {
                     char ch = str.charAt(i);
@@ -166,15 +167,7 @@ public class Repository {
                 }
                 String[] tagsArray = str.split(" ", space);
                 news.setTags(tagsArray);
-                System.out.println(news.getTitle());
                 extractList.add(news);
-                if (n > 0) {
-                    NewsExtract test2 = extractList.get(n - 1);
-                    System.out.println("previous" + test2.getTitle());
-                }
-                NewsExtract test = extractList.get(n);
-                System.out.println(test.getTitle());
-                n++;
 
             }
             r.close();

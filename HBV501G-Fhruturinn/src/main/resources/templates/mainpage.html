@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://java.sun.com/JSP/Page" >
-<head >
+<html lang="en" xmlns:th="http://java.sun.com/JSP/Page">
+<head>
     <meta charset="UTF-8">
     <title>Fréttahrúturinn</title>
-    <link rel="stylesheet" >
+    <link rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -14,7 +14,7 @@
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon">
               </span>
-        </button>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-left: 1200px">
         <div class="navbar-nav">
@@ -31,12 +31,17 @@
 
     <tr th:each="news : ${news}">
         <td>
-            <div class="box" style="height: 200px; width: 800px; border: 3px solid black; background: antiquewhite; float: left; margin-left: 500px; position: relative; margin-bottom: 20px;" >
+            <div class="box"
+                 style="height: 200px; width: 800px; border: 3px solid black; background: antiquewhite; float: left; margin-left: 500px; position: relative; margin-bottom: 20px;">
 
                 <a class="nav-link" th:text=" ${news.title}"></a>
                 <l3 class=" info" th:text=" ${news.description}" style=" margin-left: 10px;float: left;"></l3>
                 <l4 class=" link" th:text=" ${news.link}"></l4>
+<<<<<<< Updated upstream
                 <l5 class=" tags" th:text=" ${news.tags}" style=" margin-right: 20px;margin-top: 70px ; float: right;color: brown; "></l5>
+=======
+                <l5 class=" tags" th:text=" ${news.tagsSTR}"></l5>
+>>>>>>> Stashed changes
             </div>
         </td>
 

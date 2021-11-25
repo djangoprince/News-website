@@ -9,14 +9,16 @@ public class NewsExtract {
     private String link;
     private int idNews;
     private String[] tags;
+    private String tagsSTR;
 
-    
-    public NewsExtract(String title, String description, String link, int idNews, String[] tags) {
+
+    public NewsExtract(String title, String description, String link, int idNews, String[] tags, String tagsSTR) {
         this.title = title;
         this.description = description;
         this.link = link;
         this.idNews = idNews;
         this.tags = tags;
+        this.tagsSTR = tagsSTR;
     }
 
     public String getTitle() {
@@ -57,5 +59,13 @@ public class NewsExtract {
 
     public void setTags(String[] tags) {
         this.tags = tags;
+    }
+
+    public void setTagsSTR(String tagsSTR) {
+        this.tagsSTR = tagsSTR;
+    }
+
+    public String getTagsSTR() {
+        return tagsSTR;
     }
 }
